@@ -38,14 +38,14 @@ const Home = ({
   products,
 }: Props) => {
    const { user, loading } = useAuth()
-   //const subscription = useSubscription(user)
+   const subscription = useSubscription(user)
    const showModal = useRecoilValue(modalState)
    const movie = useRecoilValue(movieState)
    const list = useList(user?.uid)
 
    if (loading) return null
 
-   //if (!subscription) return <Plans products={products} />
+   if (!subscription) return <Plans products={products} />
 
   return (
     <div
